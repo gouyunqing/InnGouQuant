@@ -1,0 +1,25 @@
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+
+# --- 产物 ---
+outputs/
+
+# --- 机器专属缓存（依赖本地行情数据，换机必须重建，故不入库）---
+# 价格面板 / 收益面板 pkl（C.CACHE_DIR）
+cache/
+*.pkl
+# 程序化股池：由本地行情按流动性现算；不同机数据不同→各自重建
+universe.csv
+
+# --- 数据拉取失败/不完整的中间件（在新机/新IP上用 fetch_sectors.py 重拉）---
+sector_map_full.csv
+sector_map_partial.csv
+
+# 注：以下【市场级参考数据】是【入库】的（与本地行情无关、跨机一致、重拉耗时或被限流），
+# 故【不】在此忽略，特意提交以便 Windows 机直接离线复用：
+#   benchmarks/                 指数日线（沪深300等，东方财富）
+#   unlock_calendar.csv         120池解禁日历
+#   unlock_calendar_full.csv    全市场解禁日历（23527起，akshare 多分钟拉取）

@@ -1,0 +1,7 @@
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+# 研究脚本用（解禁日历 / 行业映射 / 基准抓取）。基准 benchmark.py 仅用标准库 urllib，
+# 但 study_unlock.py / test_unlock*.py / fetch_sectors.py / test_sector_mom.py 需要 akshare。
+akshare>=1.18
+# 注：本机未装 scipy（spearman 用 rank+pearson 自算）；装了也不冲突，非必需。
